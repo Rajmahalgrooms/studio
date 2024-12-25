@@ -43,7 +43,7 @@
         }
 
         header h1 {
-            font-size: 5rem;
+            font-size: 5vw; /* Use viewport width units for responsiveness */
             font-family: 'Engravers MT', serif;
             margin: 0;
             animation: fadeIn 2s ease-in;
@@ -51,11 +51,22 @@
         }
 
         header h2 {
-            font-size: 2.5rem;
+            font-size: 2.5vw; /* Use viewport width units for responsiveness */
             font-family: 'Great Vibes', cursive;
             margin: 5px 0;
             animation: fadeIn 2s ease-in 0.5s;
             text-shadow: 2px 2px 4px #000;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 600px) {
+            header h1 {
+                font-size: 8vw; /* Adjust font size for very small screens */
+            }
+
+            header h2 {
+                font-size: 5vw; /* Adjust font size for very small screens */
+            }
         }
 
         @keyframes fadeIn {
@@ -174,7 +185,7 @@
         }
 
         #contact a {
-            color: #ffd700;
+            color: #ffd700; /* Fix contact details color */
             text-decoration: none;
             font-weight: bold;
         }
