@@ -13,7 +13,7 @@
             background-color: #000;
             color: #ffd700;
             margin: 0;
-            padding: 0px;
+            padding: 0;
         }
 
         header {
@@ -330,12 +330,12 @@
     </header>
 
     <nav>
-        <a href="#gallery-container" id="galleryLink">Gallery</a>
-        <button class="filter-button" data-filter="jodhpuri">Jodhpuri</button>
-        <button class="filter-button" data-filter="sherwani">Sherwani</button>
-        <button class="filter-button" data-filter="indo-western">Indo-Western</button>
-        <a href="#about" id="aboutLink">About Us</a>
-        <a href="#" id="contactLink">Contact</a>
+        <a href="#gallery-container" id="galleryLink" aria-label="Gallery">Gallery</a>
+        <button class="filter-button" data-filter="jodhpuri" aria-label="Filter Jodhpuri">Jodhpuri</button>
+        <button class="filter-button" data-filter="sherwani" aria-label="Filter Sherwani">Sherwani</button>
+        <button class="filter-button" data-filter="indo-western" aria-label="Filter Indo-Western">Indo-Western</button>
+        <a href="#about" id="aboutLink" aria-label="About Us">About Us</a>
+        <a href="#" id="contactLink" aria-label="Contact">Contact</a>
     </nav>
 
     <section id="gallery">
@@ -345,7 +345,7 @@
         </div>
     </section>
 
-    <button id="loadMore">Load More</button>
+    <button id="loadMore" aria-label="Load More">Load More</button>
 
     <!-- About Us Section -->
     <section id="about">
@@ -367,9 +367,9 @@
     <!-- Contact Popup -->
     <div id="contactPopup" role="dialog" aria-labelledby="contactPopupTitle" aria-hidden="true">
         <h2 id="contactPopupTitle">Contact Us</h2>
-        <p><strong>Phone:</strong> <a href="tel:+919773571237">9773571237</a></p>
-        <p><strong>Email:</strong> <a href="mailto:rajmahalgrooms@gmail.com">contact@rajmahal.com</a></p>
-        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/rajmahal_the_groom_studio" target="_blank">@rajmahal_the_groom_studio</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+919773571237" class="contact-link">9773571237</a></p>
+        <p><strong>Email:</strong> <a href="mailto:rajmahalgrooms@gmail.com" class="contact-link">contact@rajmahal.com</a></p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/rajmahal_the_groom_studio" target="_blank" class="contact-link">@rajmahal_the_groom_studio</a></p>
         <p><strong>Location:</strong></p>
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.139624235234!2d77.22376151504174!3d28.65628908241639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd4bb8ad6ad9%3A0x228bc8fa9ce4902!2sRAJMAHAL%20THE%20GROOM%20STUDIO!5e0!3m2!1sen!2sin!4v1600106249021!5m2!1sen!2sin"
@@ -378,6 +378,18 @@
         <button class="closePopup">Close</button>
     </div>
     <div class="overlay"></div>
+    
+    <style>
+        .contact-link {
+            color: inherit; /* Inherit the color from the parent element */
+            text-decoration: none; /* Remove underline */
+            font-weight: normal; /* Adjust font weight if needed */
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline; /* Optional: Add underline on hover for clarity */
+        }
+    </style>
 
     <footer>
         <p>&copy; 2024 RAJMAHAL The Groom Studio. All rights reserved.</p>
@@ -480,8 +492,8 @@
                 overlay.style.display = "none";
             });
 
-           // Filter functionality
-           const filterButtons = document.querySelectorAll(".filter-button");
+            // Filter functionality
+            const filterButtons = document.querySelectorAll(".filter-button");
             filterButtons.forEach(button => {
                 button.addEventListener("click", () => {
                     currentIndex = 0;
@@ -492,5 +504,4 @@
         });
     </script>
 </body>
-
 </html>
