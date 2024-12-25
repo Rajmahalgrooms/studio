@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="RAJMAHAL The Groom Studio offers elegant ethnic wear for grooms, featuring Sherwanis, Kurtas, and bespoke accessories.">
     <meta name="keywords" content="RAJMAHAL, Groom Studio, Sherwani, Kurta, Indo-Western, Ethnic Wear">
     <title>RAJMAHAL The Groom Studio - The Groom Studio</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Engravers+MT&display=swap" rel="stylesheet">
     <style>
-        body {
+         body {
             font-family: Arial, sans-serif;
             background-color: #000;
             color: #ffd700;
@@ -43,7 +42,7 @@
         }
 
         header h1 {
-            font-size: 5vw; /* Use viewport width units for responsiveness */
+            font-size: 5vw;
             font-family: 'Engravers MT', serif;
             margin: 0;
             animation: fadeIn 2s ease-in;
@@ -51,21 +50,20 @@
         }
 
         header h2 {
-            font-size: 2.5vw; /* Use viewport width units for responsiveness */
+            font-size: 2.5vw;
             font-family: 'Great Vibes', cursive;
             margin: 5px 0;
             animation: fadeIn 2s ease-in 0.5s;
             text-shadow: 2px 2px 4px #000;
         }
 
-        /* Media query for smaller screens */
         @media only screen and (max-width: 600px) {
             header h1 {
-                font-size: 8vw; /* Adjust font size for very small screens */
+                font-size: 8vw;
             }
 
             header h2 {
-                font-size: 5vw; /* Adjust font size for very small screens */
+                font-size: 5vw;
             }
         }
 
@@ -185,7 +183,7 @@
         }
 
         #contact a {
-            color: #ffd700; /* Fix contact details color */
+            color: #ffd700;
             text-decoration: none;
             font-weight: bold;
         }
@@ -306,9 +304,14 @@
         footer p {
             margin: 0;
         }
+
+        /* Google Maps */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
     </style>
 </head>
-
 <body>
     <header>
         <h1>RAJMAHAL</h1>
@@ -355,11 +358,12 @@
         <h2 id="contactPopupTitle">Contact Us</h2>
         <p><strong>Phone:</strong> <a href="tel:+919773571237">9773571237</a></p>
         <p><strong>Email:</strong> <a href="mailto:rajmahalgrooms@gmail.com">contact@rajmahal.com</a></p>
-        <p><strong>Instagram:</strong>
-            <a href="https://www.instagram.com/rajmahal_the_groom_studio" target="_blank">@rajmahal_the_groom_studio</a>
-        </p>
+        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/rajmahal_the_groom_studio" target="_blank">@rajmahal_the_groom_studio</a></p>
         <p><strong>Location:</strong></p>
-        <iframe src="https://www.google.co.in/maps/place/RAJMAHAL+THE+GROOM+STUDIO/@28.6562891,77.2259497,773m/data=!3m2!1e3!4b1!4m6!3m5!1s0x390cfd4bb8ad6ad9:0x228bc8fa9ce4902!8m2!3d28.6562891!4d77.2285246!16s%2Fg%2F11tg6z4kvh?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoJLDEwMjExMjMzSAFQAw%3D%3D" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.139624235234!2d77.22376151504174!3d28.65628908241639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd4bb8ad6ad9%3A0x228bc8fa9ce4902!2sRAJMAHAL%20THE%20GROOM%20STUDIO!5e0!3m2!1sen!2sin!4v1600106249021!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         <button class="closePopup">Close</button>
     </div>
     <div class="overlay"></div>
@@ -368,7 +372,42 @@
         <p>&copy; 2024 RAJMAHAL The Groom Studio. All rights reserved.</p>
     </footer>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
     <script>
+        function initMap() {
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: pos,
+                        zoom: 15
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: pos,
+                        map: map
+                    });
+
+                }, function () {
+                    handleLocationError(true, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, pos) {
+            alert(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             const images = [
                 { src: "images/indo-western1.png", link: "profile/profile.html", category: "indo-western", alt: "Indo-Western 1" },
@@ -434,19 +473,13 @@
             // Initial load (first batch of images)
             loadImages();
 
-            // Focus on gallery when link is clicked
-            document.getElementById('galleryLink').addEventListener('click', (e) => {
+              // Focus on gallery when link is clicked
+              document.getElementById('galleryLink').addEventListener('click', (e) => {
                 e.preventDefault();
                 currentIndex = 0; // Reset to the first batch
                 galleryContainer.innerHTML = ""; // Clear previous images
                 loadImages(); // Load all images
-                document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-            });
-
-            // Scroll functionality for "About Us"
-            document.getElementById("aboutLink").addEventListener("click", (e) => {
-                e.preventDefault();
-                document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+                document.getElementById('gallery').scrollIntoView({ behavior: "smooth" });
             });
 
             // Contact Popup Logic
@@ -471,8 +504,8 @@
                 overlay.style.display = "none";
             });
 
-            // Filter functionality
-            const filterButtons = document.querySelectorAll(".filter-button");
+           // Filter functionality
+           const filterButtons = document.querySelectorAll(".filter-button");
             filterButtons.forEach(button => {
                 button.addEventListener("click", () => {
                     currentIndex = 0;
