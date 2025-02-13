@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,6 +88,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -97,6 +99,7 @@
                 transform: translateX(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -108,6 +111,7 @@
                 transform: translateX(100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -250,6 +254,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -321,8 +326,35 @@
         footer p {
             margin: 0;
         }
+
+        #whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        #whatsapp img {
+            width: 30px;
+            height: 30px;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>RAJMAHAL</h1>
@@ -332,7 +364,6 @@
     <nav>
         <a href="#gallery-container" id="galleryLink" aria-label="Gallery">Gallery</a>
         <button class="filter-button" data-filter="jodhpuri" aria-label="Filter Jodhpuri">Jodhpuri</button>
-        <button class="filter-button" data-filter="tuxedos" aria-label="Filter tuxedos">Tuxedos</button>
         <button class="filter-button" data-filter="sherwani" aria-label="Filter Sherwani">Sherwani</button>
         <button class="filter-button" data-filter="indo-western" aria-label="Filter Indo-Western">Indo-Western</button>
         <a href="#about" id="aboutLink" aria-label="About Us">About Us</a>
@@ -351,8 +382,7 @@
     <!-- About Us Section -->
     <section id="about">
         <h2>About Us</h2>
-        <p>
-            At RAJMAHAL The Groom Studio, we specialize in crafting elegant ethnic wear for grooms and their families.
+        <p> At RAJMAHAL The Groom Studio, we specialize in crafting elegant ethnic wear for grooms and their families.
             Our collection features a wide range of traditional Sherwanis, Kurtas, and bespoke accessories tailored
             to perfection. With an emphasis on quality and tradition, we ensure that every piece embodies timeless
             craftsmanship and modern sophistication.
@@ -372,23 +402,20 @@
         <p><strong>Email:</strong> <a href="mailto:rajmahalgrooms@gmail.com" class="contact-link">contact@rajmahal.com</a></p>
         <p><strong>Instagram:</strong> <a href="https://www.instagram.com/rajmahal_the_groom_studio" target="_blank" class="contact-link">@rajmahal_the_groom_studio</a></p>
         <p><strong>Location:</strong></p>
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.139624235234!2d77.22376151504174!3d28.65628908241639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd4bb8ad6ad9%3A[...]
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.1145339776917!2d77.22594967533645!3d28.656289075651763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd4bb8ad6ad9%3A0x228bc8fa9ce4902!2sRAJMAHAL%20THE%20GROOM%20STUDIO!5e0!3m2!1sen!2sin!4v1739447381682!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <button class="closePopup">Close</button>
     </div>
     <div class="overlay"></div>
-    
+
     <style>
         .contact-link {
-            color: inherit; /* Inherit the color from the parent element */
-            text-decoration: none; /* Remove underline */
-            font-weight: normal; /* Adjust font weight if needed */
+            color: inherit;
+            text-decoration: none;
+            font-weight: normal;
         }
-        
+
         .contact-link:hover {
-            text-decoration: underline; /* Optional: Add underline on hover for clarity */
+            text-decoration: underline;
         }
     </style>
 
@@ -396,36 +423,40 @@
         <p>&copy; 2024 RAJMAHAL The Groom Studio. All rights reserved.</p>
     </footer>
 
+    <a href="https://wa.me/9773571237" target="_blank" id="whatsapp" aria-label="Chat with us on WhatsApp">
+        <img src="images/whatsapp.png" alt="WhatsApp Icon">
+    </a>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const images = [
-                { src: "images/indo-western1.png", link: "profile/profile.html", category: "indo-western", alt: "Indo-Western 1" },
-                { src: "images/indo-western2.png", link: "profile/profile4.html", category: "indo-western", alt: "Indo-Western 2" },
-                { src: "images/indo-western3.png", link: "profile/profile5.html", category: "indo-western", alt: "Indo-Western 3" },
-                { src: "images/indo-western4.png", link: "profile/profile6.html", category: "indo-western", alt: "Indo-Western 4" },
-                { src: "images/indo-western5.png", link: "profile/profile7.html", category: "indo-western", alt: "Indo-Western 5" },
-                { src: "images/indo-western6.png", link: "profile/profile8.html", category: "indo-western", alt: "Indo-Western 6" },
-                { src: "images/indo-western7.png", link: "profile/profile9.html", category: "indo-western", alt: "Indo-Western 7" },
-                { src: "images/indo-western8.png", link: "profile/profile10.html", category: "indo-western", alt: "Indo-Western 8" },
-                { src: "images/sherwani1.png", link: "profile/prototype 3.html", category: "sherwani", alt: "Sherwani 1" },
-                { src: "images/sherwani2.png", link: "profile/profile2.html", category: "sherwani", alt: "Sherwani 2" },
-                { src: "images/sherwani3.png", link: "profile/profile3.html", category: "sherwani", alt: "Sherwani 3" },
-                { src: "images/sherwani4.png", link: "profile/profile11.html", category: "sherwani", alt: "Sherwani 4" },
-                { src: "images/sherwani5.png", link: "profile/profile12.html", category: "sherwani", alt: "Sherwani 5" },
-                { src: "images/sherwani6.png", link: "profile/profile13.html", category: "sherwani", alt: "Sherwani 6" },
-                { src: "images/sherwani7.png", link: "profile/profile14.html", category: "sherwani", alt: "Sherwani 7" },
-                { src: "images/sherwani8.png", link: "profile/profile15.html", category: "sherwani", alt: "Sherwani 8" },
-                { src: "images/sherwani9.png", link: "profile/profile16.html", category: "sherwani", alt: "Sherwani 9" },
-                { src: "images/sherwani10.png", link: "profile/profile17.html", category: "sherwani", alt: "Sherwani 10" },
-                { src: "images/sherwani11.png", link: "profile/profile18.html", category: "sherwani", alt: "Sherwani 11" },
-                { src: "images/sherwani12.png", link: "profile/profile19.html", category: "sherwani", alt: "Sherwani 12" },
-                { src: "images/sherwani13.png", link: "profile/profile20.html", category: "sherwani", alt: "Sherwani 13" },
-                { src: "images/sherwani14.png", link: "profile/profile21.html", category: "sherwani", alt: "Sherwani 14" },
-                { src: "images/sherwani15.png", link: "profile/profile22.html", category: "sherwani", alt: "Sherwani 15" },
-                { src: "images/sherwani16.png", link: "profile/profile23.html", category: "sherwani", alt: "Sherwani 16" },
-                { src: "images/sherwani17.png", link: "profile/profile24.html", category: "sherwani", alt: "Sherwani 17" },
-                { src: "images/sherwani18.png", link: "profile/profile25.html", category: "sherwani", alt: "Sherwani 18" }
-            ];
+    { src: "images/indo-western1.png", link: "profile/prototype 3.html", category: "indo-western", alt: "Indo-Western 1" },
+    { src: "images/indo-western2.png", link: "profile/profile4.html", category: "indo-western", alt: "Indo-Western 2" },
+    { src: "images/indo-western3.png", link: "profile/profile5.html", category: "indo-western", alt: "Indo-Western 3" },
+    { src: "images/indo-western4.png", link: "profile/profile6.html", category: "indo-western", alt: "Indo-Western 4" },
+    { src: "images/indo-western5.png", link: "profile/profile7.html", category: "indo-western", alt: "Indo-Western 5" },
+    { src: "images/indo-western6.png", link: "profile/profile8.html", category: "indo-western", alt: "Indo-Western 6" },
+    { src: "images/indo-western7.png", link: "profile/profile9.html", category: "indo-western", alt: "Indo-Western 7" },
+    { src: "images/indo-western8.png", link: "profile/profile10.html", category: "indo-western", alt: "Indo-Western 8" },
+    { src: "images/sherwani1.png", link: "profile/profile1.html", category: "sherwani", alt: "Sherwani 1" },
+    { src: "images/sherwani2.png", link: "profile/profile2.html", category: "sherwani", alt: "Sherwani 2" },
+    { src: "images/sherwani3.png", link: "profile/profile3.html", category: "sherwani", alt: "Sherwani 3" },
+    { src: "images/sherwani4.png", link: "profile/profile11.html", category: "sherwani", alt: "Sherwani 4" },
+    { src: "images/sherwani5.png", link: "profile/profile12.html", category: "sherwani", alt: "Sherwani 5" },
+    { src: "images/sherwani6.png", link: "profile/profile13.html", category: "sherwani", alt: "Sherwani 6" },
+    { src: "images/sherwani7.png", link: "profile/profile14.html", category: "sherwani", alt: "Sherwani 7" },
+    { src: "images/sherwani8.png", link: "profile/profile15.html", category: "sherwani", alt: "Sherwani 8" },
+    { src: "images/sherwani9.png", link: "profile/profile16.html", category: "sherwani", alt: "Sherwani 9" },
+    { src: "images/sherwani10.png", link: "profile/profile17.html", category: "sherwani", alt: "Sherwani 10" },
+    { src: "images/sherwani11.png", link: "profile/profile18.html", category: "sherwani", alt: "Sherwani 11" },
+    { src: "images/sherwani12.png", link: "profile/profile19.html", category: "sherwani", alt: "Sherwani 12" },
+    { src: "images/sherwani13.png", link: "profile/profile20.html", category: "sherwani", alt: "Sherwani 13" },
+    { src: "images/sherwani14.png", link: "profile/profile21.html", category: "sherwani", alt: "Sherwani 14" },
+    { src: "images/sherwani15.png", link: "profile/profile22.html", category: "sherwani", alt: "Sherwani 15" },
+    { src: "images/sherwani16.png", link: "profile/profile23.html", category: "sherwani", alt: "Sherwani 16" },
+    { src: "images/sherwani17.png", link: "profile/profile24.html", category: "sherwani", alt: "Sherwani 17" },
+    { src: "images/sherwani18.png", link: "profile/profile25.html", category: "sherwani", alt: "Sherwani 18" }
+];
 
             const galleryContainer = document.getElementById("gallery-container");
             const loadMoreButton = document.getElementById("loadMore");
@@ -458,50 +489,52 @@
             }
             loadMoreButton.addEventListener("click", () => loadImages());
 
-// Initial load (first batch of images)
-loadImages();
+            // Initial load (first batch of images)
+            loadImages();
 
-// Focus on gallery when link is clicked
-document.getElementById('galleryLink').addEventListener('click', (e) => {
-    e.preventDefault();
-    currentIndex = 0; // Reset to the first batch
-    galleryContainer.innerHTML = ""; // Clear previous images
-    loadImages(); // Load all images
-    document.getElementById('gallery').scrollIntoView({ behavior: "smooth" });
-});
+            // Focus on gallery when link is clicked
+            document.getElementById('galleryLink').addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = 0; // Reset to the first batch
+                galleryContainer.innerHTML = ""; // Clear previous images
+                loadImages(); // Load all images
+                document.getElementById('gallery').scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
 
-// Contact Popup Logic
-const contactLink = document.getElementById("contactLink");
-const contactPopup = document.getElementById("contactPopup");
-const overlay = document.querySelector(".overlay");
-const closePopupButton = document.querySelector(".closePopup");
+            // Contact Popup Logic
+            const contactLink = document.getElementById("contactLink");
+            const contactPopup = document.getElementById("contactPopup");
+            const overlay = document.querySelector(".overlay");
+            const closePopupButton = document.querySelector(".closePopup");
 
-contactLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    contactPopup.style.display = "block";
-    overlay.style.display = "block";
-});
+            contactLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                contactPopup.style.display = "block";
+                overlay.style.display = "block";
+            });
 
-closePopupButton.addEventListener("click", () => {
-    contactPopup.style.display = "none";
-    overlay.style.display = "none";
-});
+            closePopupButton.addEventListener("click", () => {
+                contactPopup.style.display = "none";
+                overlay.style.display = "none";
+            });
 
-overlay.addEventListener("click", () => {
-    contactPopup.style.display = "none";
-    overlay.style.display = "none";
-});
+            overlay.addEventListener("click", () => {
+                contactPopup.style.display = "none";
+                overlay.style.display = "none";
+            });
 
-// Filter functionality
-const filterButtons = document.querySelectorAll(".filter-button");
-filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        currentIndex = 0;
-        galleryContainer.innerHTML = ""; // Clear previous images
-        loadImages(button.getAttribute("data-filter"));
-    });
-});
-});
-</script>
+            // Filter functionality
+            const filterButtons = document.querySelectorAll(".filter-button");
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    currentIndex = 0;
+                    galleryContainer.innerHTML = ""; // Clear previous images
+                    loadImages(button.getAttribute("data-filter"));
+                });
+            });
+        });
+    </script>
 </body>
 </html>
