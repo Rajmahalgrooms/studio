@@ -1,610 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RAJMAHAL The Groom Studio offers elegant ethnic wear for grooms, featuring Sherwanis, Kurtas, and bespoke accessories.">
-    <meta name="keywords" content="RAJMAHAL, Groom Studio, Sherwani, Kurta, Indo-Western, Ethnic Wear">
-    <title>RAJMAHAL The Groom Studio - The Groom Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Engravers+MT&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Girlfriend Day 💖</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif; /* Kept Arial for consistency */
+      text-align: center;
+      background: linear-gradient(to top right, #ffe6f0, #e6f7ff);
+      color: #333;
+      padding: 20px;
+      margin: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
 
-        header {
-            text-align: center;
-            padding: 60px 10px;
-            color: #333;
-            background: url('images/header-bg.jpg') no-repeat center center/cover;
-            position: relative;
-        }
+    .step {
+      display: none;
+      font-size: 1.2em;
+      margin-top: 20px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            z-index: 1;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        header h1,
-        header h2 {
-            position: relative;
-            z-index: 2;
-        }
+    button {
+      font-size: 1em;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin: 8px;
+      background-color: #ff69b4;
+      color: white;
+      max-width: 90vw;
+      transition: transform 0.3s ease;
+    }
 
-        header h1 {
-            font-size: 5vw;
-            font-family: 'Engravers MT', serif;
-            margin: 0;
-            animation: fadeIn 2s ease-in;
-            text-shadow: 2px 2px 4px #fff;
-        }
+    button:hover {
+      transform: scale(1.05);
+    }
 
-        header h2 {
-            font-size: 2.5vw;
-            font-family: 'Great Vibes', cursive;
-            margin: 5px 0;
-            animation: fadeIn 2s ease-in 0.5s;
-            text-shadow: 2px 2px 4px #fff;
-        }
+    input {
+      font-size: 1em;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #ff69b4;
+      width: 80%;
+      max-width: 300px;
+    }
 
-        @media only screen and (max-width: 600px) {
-            header h1 {
-                font-size: 8vw;
-            }
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: url('https://media.giphy.com/media/26tPplGWjN0xLybiU/giphy.gif') center center / contain no-repeat;
+      z-index: 10;
+      opacity: 0.7;
+      animation: fadeInConfetti 2s ease-in-out;
+    }
 
-            header h2 {
-                font-size: 5vw;
-            }
+    @keyframes fadeInConfetti {
+      from { opacity: 0; }
+      to { opacity: 0.7; }
+    }
 
-            nav a,
-            nav button {
-                font-size: 1rem;
-                margin: 0 10px;
-            }
+    #noBtn {
+      position: relative;
+      display: inline-block;
+    }
 
-            #contactPopup {
-                width: 90%;
-                padding: 10px;
-            }
+    .shake {
+      animation: shake 0.5s infinite;
+    }
 
-            #contactPopup iframe {
-                width: 100%;
-                height: 300px;
-            }
-        }
+    @keyframes shake {
+      0% { transform: translate(0, 0); }
+      25% { transform: translate(3px, 3px); }
+      50% { transform: translate(-3px, -3px); }
+      75% { transform: translate(3px, -3px); }
+      100% { transform: translate(-3px, 3px); }
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+    .spin {
+      animation: spin 1s infinite linear;
+    }
 
-            to {
-                opacity: 1;
-            }
-        }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
+    .walkaway {
+      animation: walk 2s linear forwards;
+      position: relative;
+    }
 
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+    @keyframes walk {
+      0% { left: 0; }
+      100% { left: 120vw; transform: rotate(10deg); }
+    }
 
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
+    .legs::after {
+      content: "🦵🦵";
+      display: block;
+      font-size: 1.8em;
+      animation: bounce 0.4s infinite alternate;
+    }
 
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
 
-        nav {
-            text-align: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 8px;
-            animation: slideInLeft 1.5s ease-in-out;
-        }
+    #certificate {
+      border: 2px dashed #ff69b4;
+      padding: 15px;
+      margin-top: 15px;
+      background: #fff0f5;
+      font-size: 1em;
+      width: 90%;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: pulse 1.5s infinite;
+    }
 
-        nav a,
-        nav button {
-            color: #333;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
 
-        nav a:hover,
-        nav button:hover {
-            color: #555;
-        }
+    img {
+      max-width: 100%;
+    }
 
-        #gallery-container {
-            padding: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            animation: fadeInUp 2s ease-in;
-        }
+    .gift-btn {
+      animation: wiggle 1s infinite;
+    }
 
-        #gallery-container a {
-            margin: 10px;
-        }
-
-        #gallery-container img {
-            width: 100%;
-            max-width: 250px;
-            height: 300px;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #gallery-container img:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        #loadMore {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px auto;
-            display: block;
-            text-align: center;
-            transition: background-color 0.3s ease;
-            animation: slideInRight 1.5s ease-in-out;
-        }
-
-        #loadMore:hover {
-            background-color: #555;
-        }
-
-        #contact {
-            text-align: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-            color: #333;
-            margin-top: 20px;
-            border-top: 1px solid #333;
-            animation: fadeInUp 2s ease-in;
-        }
-
-        #contact p {
-            margin: 10px 0;
-        }
-
-        #contact a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #contact a:hover {
-            text-decoration: underline;
-        }
-
-        #about {
-            padding: 2em;
-            text-align: center;
-            background-color: #f8f9fa;
-            color: #333;
-            animation: fadeInUp 2s ease-in;
-            border: 2px solid #333;
-            border-radius: 10px;
-            margin: 20px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #about {
-                padding: 1em;
-                font-size: 0.9rem;
-            }
-
-            #about h2 {
-                font-size: 1.5rem;
-            }
-
-            #about p {
-                font-size: 0.8rem;
-            }
-        }
-
-        #about .highlight-address {
-            background-color: #333;
-            color: #fff;
-            font-weight: bold;
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #contactPopup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        #contactPopup h2 {
-            margin-top: 0;
-        }
-
-        #contactPopup p {
-            margin: 0.5em 0;
-        }
-
-        .closePopup {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        #contactLink {
-            color: #007bff;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        #contactLink:hover {
-            text-decoration: none;
-        }
-
-        footer {
-            background-color: #f8f9fa;
-            color: #333;
-            text-align: center;
-            padding: 1em 0;
-            background: url('images/footer-bg.jpg') no-repeat center center/cover;
-            animation: fadeInUp 2s ease-in;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        #whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        #whatsapp:hover {
-            transform: scale(1.1);
-        }
-
-        #whatsapp img {
-            width: 30px;
-            height: 30px;
-        }
-
-         /* Hide the menu by default */
-         .menu {
-            display: none;
-        }
-        /* Show the menu only on screens smaller than 768px */
-        @media (max-width: 768px) {
-            .menu {
-                display: inline-block;
-            }
-            nav {
-                display: none;
-            }
-        }
-        .menu-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .menu-content a,
-        .menu-content button {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: 1rem;
-            text-align: left;
-        }
-        .menu-content a:hover,
-        .menu-content button:hover {
-            background-color: #f1f1f1;
-        }
-        .menu:hover .menu-content {
-            display: block;
-        }
-    </style>
+    @keyframes wiggle {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <h1>RAJMAHAL</h1>
-        <h2>The Groom Studio</h2>
-    </header>
 
-    <nav>
-        <a href="#gallery-container" id="galleryLink" aria-label="Gallery">Gallery</a>
-        <button class="filter-button" data-filter="jodhpuri" aria-label="Filter Jodhpuri">Jodhpuri</button>
-        <button class="filter-button" data-filter="tuxedo" aria-label="Filter tuxedo">Tuxedos</button>
-        <button class="filter-button" data-filter="sherwani" aria-label="Filter Sherwani">Sherwani</button>
-        <button class="filter-button" data-filter="indo-western" aria-label="Filter Indo-Western">Indo-Western</button>
-        <a href="#about" id="aboutLink" aria-label="About Us">About Us</a>
-        <a href="#" id="contactLink" aria-label="Contact">Contact</a>
-    </nav>
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="menu">
-        <div class="menu-icon">☰</div>
-        <div class="menu-content">
-            <a href="#gallery-container" id="galleryLink" aria-label="Gallery">Gallery</a>
-            <button class="filter-button" data-filter="jodhpuri" aria-label="Filter Jodhpuri">Jodhpuri</button>
-            <button class="filter-button" data-filter="tuxedo" aria-label="Filter tuxedo">Tuxedos</button>
-            <button class="filter-button" data-filter="sherwani" aria-label="Filter Sherwani">Sherwani</button>
-            <button class="filter-button" data-filter="indo-western" aria-label="Filter Indo-Western">Indo-Western</button>
-            <a href="#about" id="aboutLink" aria-label="About Us">About Us</a>
-            <a href="#" id="contactLink" aria-label="Contact">Contact</a>
+<h2 id="title">Happy Girlfriend's Day 💘💐</h2>
+
+<!-- Step 0: Initial Prompt -->
+<div class="step" id="step0">
+  🥹 Hi baby!! To make this extra special, allow camera access to record your reactions? (Front camera, no preview) 📹<br><br>
+  <button onclick="requestCameraPermission()">Allow and Start 💕</button>
+  <br><br>
+  <p id="permissionStatus"></p>
+</div>
+
+<!-- Step 1: Name Input (Recording starts here if permitted) -->
+<div class="step" id="step1">
+  🥹 What should I call the world's cutest girlfriend? 🥰💕<br><br>
+  <input type="text" id="herName" placeholder="Your beautiful name 😚" />
+  <br><br>
+  <button onclick="saveName()">Start 💞</button>
+</div>
+
+<!-- Step 2 -->
+<div class="step" id="step2">
+  😍 OMG <span id="nameSpan">cutie</span>, you're even sweeter than gulab jamun dipped in Nutella! 🍩💕<br><br>
+  <button onclick="nextStep()">Awww 😚</button>
+</div>
+
+<!-- Step 3 -->
+<div class="step" id="step3">
+  😏 Who do you love more? 😈<br><br>
+  <button onclick="alert('Correct answer 😋'); nextStep()">You, of course! 🥰</button><br>
+  <button onclick="alert('Pizza can’t cuddle you like I do 😂')">Pizza 🍕</button>
+</div>
+
+<!-- Step 4 (Gift Surprise) -->
+<div class="step" id="step4">
+  🎁 Pick a gift box 💝 Only one is real! 😜<br><br>
+  <button class="gift-btn" onclick="alert('Oops, empty box! Try again 😅')">🎁</button>
+  <button class="gift-btn" onclick="alert('Haha, wrong again! Keep going 😏')">🎁</button>
+  <button class="gift-btn" onclick="revealGift()">🎁</button>
+  <br><br>
+  <button id="giftNext" style="display:none;" onclick="nextStep()">Yay! Open Your Gift 🎉</button>
+</div>
+
+<!-- Step 5 -->
+<div class="step" id="step5">
+  💍 Will you be mine forever, <span id="nameSpan2">love</span>? 💘<br><br>
+  <button onclick="yesClicked()">Yes 💋</button>
+  <button id="noBtn" onclick="noClicked()">No 🙄</button>
+</div>
+
+<!-- Step 6 -->
+<div class="step" id="step6">
+  🎊 Yaaay!! I knew it 😆 Sending 1000 hugs and 999 kisses 😘😘<br><br>
+  <div class="confetti"></div>
+  <button onclick="nextStep()">Final Surprise 💌</button>
+</div>
+
+<!-- Step 7: Certificate -->
+<div class="step" id="step7">
+  📜 Here's your OFFICIAL Girlfriend Certificate 💝<br><br>
+  <div id="certificate">
+    <h3>💖 Certificate of Cutest Girlfriend 💖</h3>
+    <p>This certifies that <strong><span id="finalName">You</span></strong> is officially the cutest, funniest, most lovable girlfriend ever!! 🥳💕</p>
+    <p>Signed with 💘 by <strong>Kamil</strong></p>
+  </div>
+  <br>
+  <button onclick="downloadCertificate()">Download 💾</button>
+  <br><br>
+  <button onclick="stopAndSaveRecording()">Save Reaction Video 📹</button>
+</div>
+
+<script>
+  let step = 0;
+  let noClicks = 0;
+  let herName = "Princess";
+  let mediaRecorder;
+  let recordedChunks = [];
+  let stream;
+  let permissionGranted = false;
+
+  function showStep(n) {
+    document.querySelectorAll('.step').forEach(el => el.style.display = 'none');
+    document.getElementById("step" + n).style.display = 'block';
+  }
+
+  async function requestCameraPermission() {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: true });
+      permissionGranted = true;
+      document.getElementById('permissionStatus').innerText = 'Permission granted! Proceeding... 🎥';
+      setTimeout(() => {
+        startRecording();
+        nextStep();
+      }, 1000); // Short delay before starting recording and moving to name step
+    } catch (err) {
+      document.getElementById('permissionStatus').innerText = 'Access denied. Please allow camera to continue. 😔';
+      // Stay on step 0 if denied
+    }
+  }
+
+  function startRecording() {
+    if (permissionGranted) {
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) recordedChunks.push(event.data);
+      };
+      mediaRecorder.start();
+      console.log('Recording started at name step!');
+    }
+  }
+
+  function stopAndSaveRecording() {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      mediaRecorder.stop();
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(recordedChunks, { type: 'video/webm' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = `${herName}_reaction_video.webm`;
+        document.body.appendChild(a);
+        a.click();
+        URL.revokeObjectURL(url);
+        recordedChunks = [];
+      };
+    }
+  }
+
+  window.addEventListener('beforeunload', () => {
+    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+      mediaRecorder.stop();
+    }
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+    }
+  });
+
+  function nextStep() {
+    if (step === 0 && !permissionGranted) return; // Prevent proceeding without permission
+    step++;
+    showStep(step);
+  }
+
+  function saveName() {
+    const input = document.getElementById("herName").value.trim();
+    herName = input || "Princess";
+    document.getElementById("nameSpan").innerText = herName;
+    document.getElementById("nameSpan2").innerText = herName;
+    document.getElementById("finalName").innerText = herName;
+    nextStep();
+  }
+
+  function revealGift() {
+    alert('Congratulations! You found the real gift: A lifetime of love and adventures! 💖');
+    document.getElementById('giftNext').style.display = 'inline-block';
+  }
+
+  function yesClicked() {
+    showStep(6);
+  }
+
+  function noClicked() {
+    const btn = document.getElementById("noBtn");
+    noClicks++;
+
+    if (noClicks === 1) {
+      btn.style.position = 'absolute';
+      btn.style.left = Math.random() * 60 + "vw";
+      btn.style.top = Math.random() * 50 + "vh";
+    } else if (noClicks === 2) {
+      btn.innerText = "Really?? 😳";
+      btn.classList.add("shake");
+    } else if (noClicks === 3) {
+      btn.classList.remove("shake");
+      btn.classList.add("spin");
+      btn.innerText = "Spinning now 🌀";
+    } else if (noClicks === 4) {
+      btn.classList.remove("spin");
+      btn.classList.add("legs");
+      btn.innerText = "BYE 😤";
+    } else if (noClicks === 5) {
+      btn.classList.add("walkaway");
+      btn.innerText = "You can't escape love! 💘";
+    }
+  }
+
+  function downloadCertificate() {
+    const certHTML = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <title>Love Certificate</title>
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: #fff0f5;
+            padding: 30px;
+            color: #333;
+          }
+          h2 {
+            color: #ff69b4;
+          }
+          p {
+            font-size: 1.2em;
+          }
+          .certificate {
+            border: 2px dashed #ff69b4;
+            padding: 20px;
+            background: white;
+            max-width: 500px;
+            margin: auto;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="certificate">
+          <h2>💖 Certificate of Cutest Girlfriend 💖</h2>
+          <p>This certifies that <strong>${herName}</strong> is officially the cutest, funniest, most lovable girlfriend ever!! 🥳💕</p>
+          <p>Signed with 100% love by <strong>Kamil</strong> ❤️</p>
         </div>
-    </div>
+      </body>
+      </html>
+    `;
+    const blob = new Blob([certHTML], {type: 'text/html'});
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${herName.replace(/\s+/g, '_')}_certificate.html`;
+    link.click();
+  }
 
-    <section id="gallery">
-        <h3>Our Latest Collection</h3>
-        <div id="gallery-container">
-            <!-- Gallery images will dynamically load here -->
-        </div>
-    </section>
+  showStep(0);
+</script>
 
-    <button id="loadMore" aria-label="Load More">Load More</button>
-
-    <!-- About Us Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p> At RAJMAHAL The Groom Studio, we specialize in crafting elegant ethnic wear for grooms and their families.
-            Our collection features a wide range of traditional Sherwanis, Kurtas, and bespoke accessories tailored
-            to perfection. With an emphasis on quality and tradition, we ensure that every piece embodies timeless
-            craftsmanship and modern sophistication.
-        </p>
-        <p>
-            Discover the perfect attire for your special day and celebrate culture with style at RAJMAHAL.
-        </p>
-        <p class="highlight-address">
-            For more designs, visit us at: <strong>458, Katra Mohan, Chandni Chowk, Delhi-06.</strong>
-        </p>
-    </section>
-
-    <!-- Contact Popup -->
-    <div id="contactPopup" role="dialog" aria-labelledby="contactPopupTitle" aria-hidden="true">
-        <h2 id="contactPopupTitle">Contact Us</h2>
-        <p><strong>Phone:</strong> <a href="tel:+919773571237" class="contact-link">9773571237</a></p>
-        <p><strong>Email:</strong> <a href="mailto:rajmahalgrooms@gmail.com" class="contact-link">contact@rajmahal.com</a></p>
-        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/rajmahal_the_groom_studio" target="_blank" class="contact-link">@rajmahal_the_groom_studio</a></p>
-        <p><strong>Location:</strong></p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.1143767805215!2d77.22594967503449!3d28.656293783002077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd4bb8ad6ad9%3A0x228bc8fa9ce4902!2sRAJMAHAL%20THE%20GROOM%20STUDIO!5e0!3m2!1sen!2sin!4v1739794167703!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <button class="closePopup">Close</button>
-    </div>
-    <div class="overlay"></div>
-
-    <style>
-        .contact-link {
-            color: inherit;
-            text-decoration: none;
-            font-weight: normal;
-        }
-
-        .contact-link:hover {
-            text-decoration: underline;
-        }
-    </style>
-
-    <footer>
-        <p>&copy; 2024 RAJMAHAL The Groom Studio. All rights reserved.</p>
-    </footer>
-
-    <a href="https://wa.me/9773571237" target="_blank" id="whatsapp" aria-label="Chat with us on WhatsApp">
-        <img src="images/whatsapp.png" alt="WhatsApp Icon">
-    </a>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const images = [
-                { src: "sherwani/1.png", link: "profile/sw1.html", category: "sherwani", alt: "Sherwani 1" },
-                { src: "sherwani/2.png", link: "profile/sw2.html", category: "sherwani", alt: "Sherwani 2" },
-                { src: "sherwani/3.png", link: "profile/sw3.html", category: "sherwani", alt: "Sherwani 3" },
-                { src: "sherwani/4.png", link: "profile/sw4.html", category: "sherwani", alt: "Sherwani 4" },
-                { src: "sherwani/5.png", link: "profile/sw5.html", category: "sherwani", alt: "Sherwani 5" },
-                { src: "sherwani/6.png", link: "profile/sw6.html", category: "sherwani", alt: "Sherwani 6" },
-                { src: "sherwani/7.png", link: "profile/sw7.html", category: "sherwani", alt: "Sherwani 7" },
-                { src: "sherwani/8.png", link: "profile/sw8.html", category: "sherwani", alt: "Sherwani 8" },
-                { src: "sherwani/9.png", link: "profile/sw9.html", category: "sherwani", alt: "Sherwani 9" },
-                { src: "sherwani/10.png", link: "profile/sw10.html", category: "sherwani", alt: "Sherwani 10" },
-                { src: "sherwani/11.png", link: "profile/sw11.html", category: "sherwani", alt: "Sherwani 11" },
-                { src: "sherwani/12.png", link: "profile/sw12.html", category: "sherwani", alt: "Sherwani 12" },
-                { src: "indowestern/1.png", link: "profile/indo1.html", category: "indo-western", alt: "indo 1" },
-                { src: "indowestern/2.png", link: "profile/indo2.html", category: "indo-western", alt: "indo 2" },
-                { src: "indowestern/3.png", link: "profile/indo3.html", category: "indo-western", alt: "indo 3" },
-                { src: "indowestern/4.png", link: "profile/indo4.html", category: "indo-western", alt: "indo 4" },
-                { src: "indowestern/5.png", link: "profile/indo5.html", category: "indo-western", alt: "indo 5" },
-                { src: "indowestern/6.png", link: "profile/indo6.html", category: "indo-western", alt: "indo 6" },
-                { src: "indowestern/7.png", link: "profile/indo7.html", category: "indo-western", alt: "indo 7" },
-                { src: "indowestern/8.png", link: "profile/indo8.html", category: "indo-western", alt: "indo 8" },
-                { src: "indowestern/9.png", link: "profile/indo9.html", category: "indo-western", alt: "indo 9" },
-                { src: "jodhpuri/1.png", link: "profile/jp1.html", category: "jodhpuri", alt: "jp 1" },
-                { src: "tuxedo/1.png", link: "profile/tux1.html", category: "tuxedo", alt: "tux 1" },
-                { src: "tuxedo/2.png", link: "profile/tux2.html", category: "tuxedo", alt: "tux 2" },
-                { src: "tuxedo/3.png", link: "profile/tux3.html", category: "tuxedo", alt: "tux 3" },
-            ];
-
-            const galleryContainer = document.getElementById("gallery-container");
-            const loadMoreButton = document.getElementById("loadMore");
-
-            let currentIndex = 0;
-            const batchSize = 4;
-            let currentCategory = "all";
-
-            function loadImages(category = "all") {
-                const filteredImages = category === "all" ? images : images.filter(img => img.category === category);
-                const imagesToShow = filteredImages.slice(currentIndex, currentIndex + batchSize);
-                imagesToShow.forEach((imgData) => {
-                    const link = document.createElement("a");
-                    link.href = imgData.link;
-                    link.className = imgData.category;
-                    const img = document.createElement("img");
-                    img.src = imgData.src;
-                    img.alt = imgData.alt;
-                    link.appendChild(img);
-                    galleryContainer.appendChild(link);
-                });
-                currentIndex += batchSize;
-
-                if (currentIndex >= filteredImages.length) {
-                    loadMoreButton.innerText = "All Loaded";
-                    loadMoreButton.disabled = true;
-                } else {
-                    loadMoreButton.innerText = "Load More";
-                    loadMoreButton.disabled = false;
-                }
-            }
-            loadMoreButton.addEventListener("click", () => loadImages(currentCategory));
-
-            // Initial load (first batch of images)
-            loadImages();
-
-            // Focus on gallery when link is clicked
-            document.getElementById('galleryLink').addEventListener('click', (e) => {
-                e.preventDefault();
-                currentIndex = 0; // Reset to the first batch
-                currentCategory = "all"; // Reset to all categories
-                galleryContainer.innerHTML = ""; // Clear previous images
-                loadImages(); // Load all images
-                document.getElementById('gallery').scrollIntoView({
-                    behavior: "smooth"
-                });
-            });
-
-            // Contact Popup Logic
-            const contactLink = document.getElementById("contactLink");
-            const contactPopup = document.getElementById("contactPopup");
-            const overlay = document.querySelector(".overlay");
-            const closePopupButton = document.querySelector(".closePopup");
-
-            contactLink.addEventListener("click", (e) => {
-                e.preventDefault();
-                contactPopup.style.display = "block";
-                overlay.style.display = "block";
-            });
-
-            closePopupButton.addEventListener("click", () => {
-                contactPopup.style.display = "none";
-                overlay.style.display = "none";
-            });
-
-            overlay.addEventListener("click", () => {
-                contactPopup.style.display = "none";
-                overlay.style.display = "none";
-            });
-
-            // Filter functionality
-            const filterButtons = document.querySelectorAll(".filter-button");
-            filterButtons.forEach(button => {
-                button.addEventListener("click", () => {
-                    currentIndex = 0;
-                    currentCategory = button.getAttribute("data-filter"); // Update current category
-                    galleryContainer.innerHTML = ""; // Clear previous images
-                    loadImages(currentCategory);
-                });
-            });
-
-            // Toggle three-dot menu
-            const menuIcon = document.querySelector('.menu-icon');
-            const menuContent = document.querySelector('.menu-content');
-            menuIcon.addEventListener('click', () => {
-                menuContent.classList.toggle('show');
-            });
-
-            // Add event listener to close menu when clicking outside
-            document.addEventListener('click', (event) => {
-                if (!menuIcon.contains(event.target) && !menuContent.contains(event.target)) {
-                    menuContent.classList.remove('show');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
