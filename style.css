@@ -1,0 +1,174 @@
+:root {
+  --lavender: #b57aff;
+  --gold: #ffe066;
+  --black: #181733;
+  --white: #fff;
+  --glow: 0 0 16px 2px #ffe066, 0 0 6px 0px #b57aff;
+}
+body {
+  font-family: 'Quicksand', 'Arial', sans-serif;
+  background: radial-gradient(ellipse at top left, var(--black) 80%, #2e2446 100%);
+  color: var(--gold);
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+}
+main {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 2.5em 0 1em 0;
+}
+h1, h2, h3 {
+  color: var(--lavender);
+  text-shadow: var(--glow);
+  margin-bottom: 0.4em;
+}
+.glow {
+  font-size: 2em;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 1.2em;
+  text-shadow: 0 0 20px var(--gold), 0 0 4px #b57aff;
+}
+.step {
+  display: none;
+  animation: fadeIn 1s;
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+input[type="text"] {
+  font-size: 1.2em;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1.8px solid var(--lavender);
+  background: #241e36;
+  color: var(--gold);
+  margin-bottom: 1em;
+  width: 90%;
+}
+input[type="text"]::placeholder { color: #c7aee6; }
+button.main-btn {
+  background: linear-gradient(90deg, var(--lavender), var(--gold));
+  color: var(--black);
+  font-weight: 700;
+  font-size: 1.14em;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 9px #b57aff88;
+  padding: 14px 36px;
+  margin: 1em auto 0.6em auto;
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+  display: block;
+}
+button.main-btn.danger {
+  background: linear-gradient(90deg, #a06aff, #ff7272);
+  color: #fff;
+}
+button.main-btn:active { transform: scale(0.96); }
+.gift-row { display: flex; justify-content: center; gap: 1.4em; margin: 16px 0 6px 0; }
+.gift-btn {
+  font-size: 2.2em;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0 0.4em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.gift-btn:active { transform: scale(1.18) rotate(-8deg); }
+.confetti {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 90;
+}
+.emoji-party { font-size: 2em; margin: 1em 0; }
+#emojiShow { font-size: 2.2em; margin: 10px 0;}
+/* No button animations */
+#noBtn.shake { animation: shake 0.5s 3; }
+#noBtn.spin { animation: spin 0.8s 2; }
+#noBtn.walkaway { animation: walkaway 1.8s forwards; }
+@keyframes shake {
+  0% { transform: translate(0,0);}
+  20% { transform: translate(-4px,0);}
+  40% { transform: translate(4px,0);}
+  60% { transform: translate(-4px,0);}
+  80% { transform: translate(4px,0);}
+  100% { transform: translate(0,0);}
+}
+@keyframes spin {
+  0% { transform: rotate(0);}
+  100% { transform: rotate(360deg);}
+}
+@keyframes walkaway {
+  0% { left: 0;}
+  100% { left: 120vw;}
+}
+/* Parchment Scroll */
+.parchment {
+  margin: 1.2em auto 0 auto;
+  max-width: 340px;
+  background: linear-gradient(180deg, #fdf6e3 0%, #e9d7b2 100%);
+  border: 3px solid #edd598;
+  border-radius: 16px;
+  box-shadow: 0 4px 40px #b57aff50, 0 0 0 1px #c1b28a;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 0.3s;
+}
+.parchment .scroll-top, .parchment .scroll-bottom {
+  height: 22px;
+  background: repeating-linear-gradient(90deg,#edd598,#f6ede0 12px,#e9d7b2 20px);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 1px 6px #e9d7b2bb;
+}
+.parchment .scroll-bottom {
+  border-radius: 0 0 16px 16px;
+  margin-top: -4px;
+}
+.parchment .scroll-center {
+  min-height: 0;
+  height: 0;
+  overflow: hidden;
+  transition: height 1.6s cubic-bezier(.25,.85,.52,1.1);
+  background: linear-gradient(180deg, #fdf6e3 90%, #e9d7b2 100%);
+  padding: 0 18px;
+}
+.parchment.unrolled .scroll-center {
+  height: 340px;
+  min-height: 210px;
+  padding: 24px 18px 20px 18px;
+}
+.cert-content {
+  opacity: 0;
+  transition: opacity 1s linear;
+  text-align: center;
+  margin-top: 20px;
+  color: #6c4e13;
+  font-family: 'Georgia', serif;
+}
+.parchment.unrolled .cert-content {
+  opacity: 1;
+}
+.pull-down {
+  color: #b57aff;
+  font-size: 1.1em;
+  margin: 10px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  animation: pullblink 1.3s infinite;
+}
+@keyframes pullblink {
+  0%,100% { opacity: 0.3;}
+  50% { opacity: 1;}
+}
+.big-emoji { font-size: 2.5em; margin: 14px 0 2px 0;}
+/* fadeIn for steps */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
