@@ -1,14 +1,50 @@
 // Main Variables
 let step = 0, herName = 'Queen', noCount = 0;
 let mediaRecorder, recordedChunks = [], stream, permissionGranted = false;
+let animatingStep = false;
 
-// Step Navigation
-function showStep(n) {
-  document.querySelectorAll('.step').forEach(s => s.style.display = 'none');
-  let curr = document.getElementById('step'+n);
-  if (curr) curr.style.display = 'block';
+// Smooth animated step navigation
+function showStep(n, direction = 'right') {
+  if (animatingStep) return;
+  animatingStep = true;
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const current = steps.find(s => s.classList.contains('active'));
+  const next = document.getElementById('step' + n);
+
+  if (current) {
+    // Animate out current step
+    current.classList.remove('active');
+    current.classList.add(direction === 'right' ? 'hide-left' : 'hide-right');
+    setTimeout(() => {
+      current.classList.remove('hide-left', 'hide-right');
+      current.style.display = 'none';
+      // Animate in next step
+      next.style.display = 'block';
+      setTimeout(() => {
+        next.classList.add('active');
+        animatingStep = false;
+      }, 10);
+    }, 450); // Match CSS transition
+  } else {
+    // Initial load
+    next.style.display = 'block';
+    setTimeout(() => {
+      next.classList.add('active');
+      animatingStep = false;
+    }, 10);
+  }
 }
-function nextStep() { step++; showStep(step); }
+
+function nextStep() { 
+  let prev = step;
+  step++; 
+  showStep(step, 'right'); 
+}
+function prevStep() {
+  let prev = step;
+  step--;
+  showStep(step, 'left');
+}
 
 // Step 0: Camera
 async function requestCamera() {
@@ -55,14 +91,69 @@ function saveName() {
   nextStep();
 }
 
-// Step 3: Emoji Show
+// Step 3: Love Meter Game
+let loveMeterValue = 0;
+function tapLoveMeter() {
+  if (loveMeterValue < 100) {
+    loveMeterValue += Math.floor(Math.random() * 25) + 8;
+    if (loveMeterValue > 100) loveMeterValue = 100;
+    document.getElementById('loveMeterFill').style.width = loveMeterValue + '%';
+    document.getElementById('loveMeterMsg').innerText = [
+      "Keep going! ❤️",
+      "More love, more power! 💪",
+      "Almost there! 😘",
+      "Love meter rising! 💜"
+    ][Math.floor(Math.random()*4)];
+    if (loveMeterValue >= 100) {
+      document.getElementById('loveMeterMsg').innerText = "Wow! It's overflowing! 💯💖";
+      setTimeout(()=>nextStep(), 1200);
+    }
+  }
+}
+
+// Step 4: Memory Flashback
+function saveMemory() {
+  let mem = document.getElementById('memoryInput').value.trim();
+  if (!mem) {
+    document.getElementById('memoryInput').placeholder = "Please type something sweet! 😍";
+    return;
+  }
+  document.getElementById('memoryInput').disabled = true;
+  document.getElementById('memoryInput').style.opacity = 0.7;
+  setTimeout(()=>nextStep(), 900);
+}
+
+// Step 5: Virtual Hug
+let hugInterval, hugValue = 0;
+function startHug() {
+  hugValue = 0;
+  document.getElementById('hugProgressFill').style.width = '0%';
+  document.getElementById('hugMsg').innerText = "Keep holding for a big warm hug! 🤗";
+  hugInterval = setInterval(()=>{
+    hugValue += 2.1;
+    document.getElementById('hugProgressFill').style.width = hugValue + '%';
+    if (hugValue >= 100) {
+      document.getElementById('hugMsg').innerText = "Hug delivered with extra love! 💜";
+      clearInterval(hugInterval);
+      setTimeout(()=>nextStep(), 1200);
+    }
+  }, 24);
+}
+function endHug() {
+  clearInterval(hugInterval);
+  if (hugValue < 100) {
+    document.getElementById('hugMsg').innerText = "Aww, hold a bit longer next time! 🥹";
+  }
+}
+
+// Step 8: Emoji Show (moved from 3)
 function showEmoji(e) {
   let el = document.getElementById('emojiShow');
   el.innerText = e;
   setTimeout(()=>{ el.innerText = ''; }, 900);
 }
 
-// Step 4: Gifts
+// Step 9: Gifts
 function giftWrong() {
   let msg = [
     "Oops, empty box! Try again 😅",
@@ -76,7 +167,7 @@ function giftRight() {
   document.getElementById('giftNext').style.display = 'inline-block';
 }
 
-// Step 5: No Button Animations
+// Step 10: No Button Animations
 function noClicked() {
   let btn = document.getElementById('noBtn');
   noCount++;
@@ -96,13 +187,13 @@ function noClicked() {
   }
 }
 
-// Step 5: Yes
+// Step 10: Yes
 function yesClicked() {
-  showStep(6);
+  showStep(11, 'right');
   launchConfetti();
 }
 
-// Step 7: Parchment Scroll
+// Step 12: Parchment Scroll
 let scrollUnrolled = false;
 function unrollCertificate() {
   if (!scrollUnrolled) {
@@ -136,7 +227,7 @@ function launchConfetti() {
   c.innerHTML = html;
   setTimeout(()=>c.innerHTML='',3400);
 }
-document.addEventListener('DOMContentLoaded',()=>{ showStep(0); });
+document.addEventListener('DOMContentLoaded',()=>{ showStep(0, 'right'); });
 
 // Confetti keyframes (inject in JS for fallback, but CSS recommends using animated gif for ultra-low end; here we use both)
 const style = document.createElement('style');
