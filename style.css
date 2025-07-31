@@ -9,6 +9,7 @@ body {
   font-family: 'Quicksand', 'Arial', sans-serif;
   background: radial-gradient(ellipse at top left, var(--black) 80%, #2e2446 100%);
   color: var(--gold);
+  TEXT-ALIGN: CENTER;
   margin: 0;
   min-height: 100vh;
   padding: 0;
@@ -254,9 +255,7 @@ button.main-btn:active { transform: scale(0.96); }
 /* Mobile friendly bigger touch areas */
 @media (max-width: 500px) {
   button.main-btn, .gift-btn {
-    font-size: 1.14em;
-    padding: 16px 8vw;
-    min-width: 80vw;
+   
   }
   input[type="text"], textarea {
     font-size: 1.08em;
