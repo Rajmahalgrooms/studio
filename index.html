@@ -12,7 +12,6 @@
     <source src="your_own_song.mp3" type="audio/mpeg">
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
   </audio>
-
   <div class="confetti"></div>
 
   <main>
@@ -38,16 +37,61 @@
       <button class="main-btn" onclick="nextStep()">Blushes 😳</button>
     </section>
 
-    <!-- Step 3: Fun Question -->
+    <!-- Step 3: Love Meter Game -->
     <section class="step" id="step3">
+      <p>Let's see how much you love me! Tap the heart to fill the Love Meter! ❤️</p>
+      <div id="loveMeterBar" class="love-meter-bar">
+        <div id="loveMeterFill" class="love-meter-fill"></div>
+      </div>
+      <button class="main-btn" id="loveMeterBtn" onclick="tapLoveMeter()">❤️ Tap Me!</button>
+      <div id="loveMeterMsg"></div>
+    </section>
+
+    <!-- Step 4: Memory Flashback -->
+    <section class="step" id="step4">
+      <p>Remember a super cute or funny moment with me?<br>
+      Type it here so I can smile too! 😊</p>
+      <textarea id="memoryInput" placeholder="Type your favorite memory here..." rows="3"></textarea>
+      <button class="main-btn" onclick="saveMemory()">Share Memory 💭</button>
+    </section>
+
+    <!-- Step 5: Virtual Hug -->
+    <section class="step" id="step5">
+      <p>Need a hug? Press and hold the button for a virtual hug! 🤗💜</p>
+      <div id="hugProgressBar" class="hug-progress-bar">
+        <div id="hugProgressFill" class="hug-progress-fill"></div>
+      </div>
+      <button class="main-btn" id="hugBtn" onmousedown="startHug()" onmouseup="endHug()" ontouchstart="startHug()" ontouchend="endHug()">🤗 Hold for Hug</button>
+      <div id="hugMsg"></div>
+    </section>
+
+    <!-- Step 6: Apology Step -->
+    <section class="step" id="step6">
+      <div class="apology-emoji">🐶🥺</div>
+      <p>Sometimes I mess up...<br>
+      <span class="apology-text">I'm really sorry for any time I made you sad.<br>
+      You mean the world to me! 💜</span></p>
+      <button class="main-btn" onclick="nextStep()">It's okay, I forgive you 😊</button>
+    </section>
+
+    <!-- Step 7: Promise Step -->
+    <section class="step" id="step7">
+      <p>Here's my promise: <br>
+        <span class="promise-text">I will always listen, love, cherish, and support you — forever and ever. 💍💜</span>
+      </p>
+      <button class="main-btn" onclick="nextStep()">I accept your promise! 💖</button>
+    </section>
+
+    <!-- Step 8: Fun Question -->
+    <section class="step" id="step8">
       <p>What makes you smile the most? 😏</p>
       <button onclick="nextStep(); showEmoji('😘')" class="main-btn">You! 😘</button>
       <button onclick="showEmoji('🍟')" class="main-btn">French fries 🍟</button>
       <div id="emojiShow"></div>
     </section>
 
-    <!-- Step 4: Gift Boxes -->
-    <section class="step" id="step4">
+    <!-- Step 9: Gift Boxes -->
+    <section class="step" id="step9">
       <p>Pick a magical box, my love! 🎁 Only one hides a real gift!</p>
       <div class="gift-row">
         <button class="gift-btn" onclick="giftWrong()">🎁</button>
@@ -58,22 +102,22 @@
       <button class="main-btn next-hide" id="giftNext" style="display:none;" onclick="nextStep()">Open Your Gift 🎉</button>
     </section>
 
-    <!-- Step 5: Proposal -->
-    <section class="step" id="step5">
+    <!-- Step 10: Proposal -->
+    <section class="step" id="step10">
       <p>Will you be mine forever, <span id="name2">love</span>? 💍</p>
       <button onclick="yesClicked()" class="main-btn">Yes 💋</button>
       <button id="noBtn" onclick="noClicked()" class="main-btn danger">No 🙄</button>
     </section>
 
-    <!-- Step 6: Confetti & Kisses -->
-    <section class="step" id="step6">
+    <!-- Step 11: Confetti & Kisses -->
+    <section class="step" id="step11">
       <div class="emoji-party">💋 💜 💋 💜 💋 💜</div>
       <p>Yay! I knew it!<br>Here’s 1000 kisses and infinite hugs! 😘😘😘</p>
       <button class="main-btn" onclick="nextStep()">For you: A Royal Scroll! 👑</button>
     </section>
 
-    <!-- Step 7: Scroll Certificate -->
-    <section class="step" id="step7">
+    <!-- Step 12: Scroll Certificate -->
+    <section class="step" id="step12">
       <p>🎀 Pull to open your scroll certificate! 🎀</p>
       <div id="parchment" class="parchment" onclick="unrollCertificate()">
         <div class="scroll-top"></div>
@@ -94,7 +138,6 @@
       </div>
     </section>
   </main>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script src="main.js"></script>
 </body>
